@@ -1,0 +1,183 @@
+
+<h1>Model Driven Form using FormBuilder</h1>
+<font color="green"><h2>{{successMessage}}</h2></font>
+
+<!--
+<form [formGroup]='patientForm' (ngSubmit)='submit()'>
+  -->  
+
+
+<form novalidate [formGroup]="patientForm" (ngSubmit)="displayPatientInfo()">
+    <fieldset>
+        <!--patient Id -->
+        <div class = "form-group" >
+
+                <label> Patient Id auto</label>
+        </div>
+        <!--
+        <div>
+                
+                <input type="text" class="form-control"  id=" patientId" formControlName="patientId" >
+                
+        </div>
+        -->
+        <!--
+
+        <div class="alert alert-danger" *ngIf="patientForm.get('patientId').hasError('required')
+                 && patientForm.get(patientId').dirty" > Please enter patient Id
+        </div>
+       -->
+
+        <!-- patient first name-->
+        <div class = "form-group" >
+            <label> patient firstName : </label>
+            <input type="text" class="form-control"  id="firstname"  formControlName = "firstname" >
+        </div>
+
+        <div class="alert alert-danger"  *ngIf= "patientForm.get('fristname').hasError('required')
+             && patientForm.get('firstname').dirty" > Please enter first Name
+        </div>
+
+        <!-- patient last name-->
+        <div class = "form-group" >
+            <label> patient Lastname : </label>
+            <input type="text" class="form-control" id="lastname"   formControlName = "lastname" >
+        </div>
+
+        <div class="alert alert-danger"  *ngIf= "patientForm.get('lastname').hasError('required')
+             && patientForm.get('lastname').dirty" > Please enter last Name
+        </div>
+
+       <!-- email -->
+       <div class = "form-group" >
+        <label> patient email: </label>
+        <input type="text" class="form-control" id="'email" formControlName="email" >
+       </div>
+        
+        <!-- password-->
+        <div class = "form-group" >
+            <label> Password: </label>
+            <input type="text" class="form-control"  id="password" formControlName="password" >
+        </div>
+        <div class="alert alert-danger"  *ngIf= "patientForm.get('password').hasError('required')
+             && patientForm.get('password').dirty" > Please enter password
+        </div>
+
+        <div class="alert alert-danger" *ngIf= "patientForm.get('password').hasError('minlength')
+            && patientForm.get('password').dirty" > Please enter at least 6 characters 
+        </div>
+
+        <!--phone -->
+        <div class = "form-group" >
+            <label> Phone : </label>
+            <input type="text" class="form-control"  id="phone" formControlName="phone" >
+        </div>
+
+        
+        <!-- sex-->
+        <div class = "form-group" >
+             
+            <label> patient gender :</label>
+            <input type="text" class="form-control" id="'sex" formControlName="sex" >
+           </div>
+
+            <!-- 
+            
+            <label for ="sex"> Sex</label>
+
+                <div class="form-chek" *ngFor ="let sex of sexs">
+
+                    <input class="form-check-input" type = "radio"  name="sex" id="{{sex.id}}" value="{{sex.value}}"  
+                            [(ngModel)]="patient.sex" > 
+
+                  <label class="form-check-label"  for= "{{sex.id}}"> {{sex.text}} </label>
+                </div>
+        </div>
+      -->  
+
+        <!-- birthdate --> 
+        <br/>
+        <div class = "form-group" >
+            <label> birthdate : mm/dd/yyyy :  </label>
+            <input type="text" class="form-control"  id="birthdate" formControlName="birthdate" >
+        </div>
+        <div class="alert alert-danger"  *ngIf= "patientForm.get('birthdate').hasError('required')
+             && patientForm.get('birthdate').dirty" > Please enter your birthdate
+        </div>
+
+        <div class="alert alert-danger" *ngIf= "patientForm.get('birthdate').hasError('minlength')
+            && patientForm.get('birthdate').dirty" > Please enter your birthdate as mm/dd/yyyy
+        </div>
+        <br/>
+
+        <!-- address-->
+        <div class = "form-group" >
+            <label> address :  </label>
+            <input type="text" class="form-control"  id ="address" formControlName="address" >
+        </div>
+        <div class="alert alert-danger"  *ngIf= "patientForm.get('address').hasError('required')
+             && patientForm.get('address').dirty" > Please enter your address
+        </div>
+
+        <br/>
+        <!-- city -->
+        <div class = "form-group" >
+            <label> city : </label>
+            <input type="text" class="form-control"  id="city"  formControlName="city" >
+        </div>
+        <br/>
+
+        <!-- state-->
+        <div class = "form-group" >
+            <label> state : </label>
+            <input type="text" class="form-control"  id="state"  formControlName="state" >
+        </div>
+    <br/>
+
+        <!-- zip_code -->
+        <div class = "form-group" >
+            <label> zip_code :</label>
+            <input type="text" class="form-control"  id="zip_code"  formControlName="zip_code" >
+        </div>
+
+        <br/>
+
+        <!-- date_created -->
+       
+            <!-- 
+                 <div class = "form-group" >
+            <label> Today's date : mm/dd/yyyy  </label>
+            <input type="text" class="form-control"  id="date_created" formControlName="date_created" >
+        </div>
+        <div class="alert alert-danger"  *ngIf= "patientForm.get('date_created').hasError('required')
+             && patientForm.get('date_created').dirty" > Please enter today's date
+        </div>
+
+        <div class="alert alert-danger" *ngIf= "patientForm.get('date_created').hasError('minlength')
+            && patientForm.get('date_created').dirty" > Please enter today's date  as mm/dd/yyyy
+        </div>
+
+-->
+
+<div class = "form-group" >
+        <label> Today's date : </label>
+        <label>
+        {{ currentDate | date: 'dd/MM/YYYY'}}
+    </label>
+
+        <!--
+        <button type="submit" class="btn btn-primary" [disabled]="!patientForm.valid">Submit</button>
+        -->
+</div>
+
+         
+        <input type="submit" [disabled]="patientForm.invalid" class="btn btn-success">
+
+
+    </fieldset> 
+
+</form>
+
+
+
+

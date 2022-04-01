@@ -1,0 +1,38 @@
+<p>patient-list views</p>
+<table border="10"  cellspacing="10" cellpadding="10">
+    <tr>
+        <th>Patient Id</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Phone</th>
+        <th>Sex</th>
+        <th>Birthdate</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip Code</th>
+        <th>Date Created</th>
+    </tr>
+    <tr *ngFor = "let patient of patients">
+        <td>{{ patient.patient_id }}</td>
+        <td>{{ patient.firstname }}</td>
+        <td>{{ patient.lastname }}</td>
+        <td>{{ patient.email }}</td>
+        <td>{{ patient.password }}</td>
+        <td>{{ patient.phone }}</td>
+        <td>{{ patient.sex }}</td>
+        <td>{{ patient.birthdate }}</td>
+        <td>{{ patient.address }}</td>
+        <td>{{ patient.city }}</td>
+        <td>{{ patient.state }}</td>
+        <td>{{ patient.zip_code }}</td>
+        <td>{{ patient.date_created | date:'MM/dd/YYYY'}}</td>
+
+    </tr>
+
+</table>
+
+
+
